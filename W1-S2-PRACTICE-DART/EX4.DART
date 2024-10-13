@@ -5,7 +5,7 @@ void main() {
     'margherita': 5.5,
   };
 
-  const order = ['margherita', 'pepperoni','pizza'];
+  const order = ['margherita', 'pepperoni'];
   
   double total = 0;
   bool isNotOnMenu = false;
