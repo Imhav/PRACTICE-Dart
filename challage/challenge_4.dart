@@ -27,8 +27,6 @@ class Shape {
 class Distance {
   final double _centimeters;
 
-  const Distance._(this._centimeters);
-
   const Distance.cms(double cms) : _centimeters = cms;
   const Distance.meters(double meters) : _centimeters = meters * 100;
   const Distance.kms(double kms) : _centimeters = kms * 100000;
@@ -37,9 +35,8 @@ class Distance {
   double get inMeters => _centimeters / 100;
   double get inKilometers => _centimeters / 100000;
 
-  Distance operator +(Distance other) {
-    return Distance._(this._centimeters + other._centimeters);
-  }
+  Distance operator +(Distance other) =>
+      Distance.cms(_centimeters + other._centimeters);
 
   @override
   String toString() {
