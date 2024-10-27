@@ -34,3 +34,9 @@ class Ex2 extends StatelessWidget {
     );
   }
 }
+//In this exercise, the Scaffold widget is not used 
+//because it is primarily designed to provide a standard layout
+// structure for a Flutter app's visual elements, like app bars,
+// floating action buttons, drawers, and bottom navigation bars.
+// Here, the exercise only creates a simple Container with centered text,
+// which doesn’t require the full layout structure that Scaffold offers.
