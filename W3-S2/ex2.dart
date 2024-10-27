@@ -12,9 +12,9 @@ class Ex2 extends StatelessWidget {
     return MaterialApp(
       title: 'Ex2practice',
       home: Container(
-        color: Colors.blue[300],
         padding: const EdgeInsets.all(50),
         margin: const EdgeInsets.all(40),
+        color: Colors.blue[300],
         child: Container(
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(5),
