@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const Ex3());
+  runApp(const Ex4());
 }
 
-class Ex3 extends StatelessWidget {
-  const Ex3({super.key});
+class Ex4 extends StatelessWidget {
+  const Ex4({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,17 +19,17 @@ class Ex3 extends StatelessWidget {
             children: [
               CustomCard(
                 text: "OOP",
-                color: Colors.blue[100]!,
+                color: Colors.purple[100]!,
               ),
               const SizedBox(height: 20),
               CustomCard(
                 text: "DART",
-                color: Colors.blue[300]!,
+                //color: Colors.blue[300]!,
               ),
               const SizedBox(height: 20),
               CustomCard(
                 text: "FLUTTER",
-                color: Colors.blue[600]!,
+                gradientColors: [Colors.blue.shade300, Colors.blue.shade600],
               ),
             ],
           ),
@@ -42,21 +42,25 @@ class Ex3 extends StatelessWidget {
 class CustomCard extends StatelessWidget {
   final String text;
   final Color color;
+  final List<Color>? gradientColors;
 
   const CustomCard({
     super.key,
     required this.text,
-    this.color = Colors.blue,
+    this.color = Colors.blue, // Default color set to blue
+    this.gradientColors,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(top: 10),
       padding: const EdgeInsets.all(25),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(35),
-        color: color,
+        color: gradientColors == null ? color : null,
+        gradient: gradientColors != null 
+            ? LinearGradient(colors: gradientColors!)
+            : null,
       ),
       child: Center(
         child: Text(
