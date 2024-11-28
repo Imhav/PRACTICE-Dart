@@ -5,7 +5,7 @@ enum ExpenseType {
   food(type: "Food", icon: Icons.fastfood),
   travel(type: "Travel", icon: Icons.airplanemode_active),
   leisure(type: "Leisure", icon: Icons.beach_access),
-  work(type: "Work", icon: Icons.work);
+  work(type: "Work", icon: Icons.book);
 
   final String type;
   final IconData icon;

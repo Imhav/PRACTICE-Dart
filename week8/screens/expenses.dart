@@ -7,9 +7,9 @@ class Expenses extends StatelessWidget {
 
   final List<Expense> _registerExpenses = [
     Expense(
-        type: ExpenseType.travel,
-        title: "Cambodia",
-        amount: 150.5,
+        type: ExpenseType.work,
+        title: "ronan the best book.",
+        amount: 15000,
         date: DateTime.now()),
   ];
 

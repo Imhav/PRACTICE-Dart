@@ -19,35 +19,45 @@ class ExpensesItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+      ),
+      elevation: 4,
       child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        padding: const EdgeInsets.all(12.0),
+        child: Row(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  title,
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.bold,
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    title,
+                    style: const TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
-                ),
-                Text(
-                  '\$ ${amount.toStringAsFixed(2)}',
-                  style: TextStyle(
-                    fontSize: 16.0,
-                    color: Colors.grey[700],
-                  ),
-                ),
-              ],
+                  const SizedBox(height: 4.0),
+                  Text(
+                    NumberFormat.currency(symbol: '\$').format(amount),
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                  )
+                ],
+              ),
             ),
-            SizedBox(height: 8.0),
+            const SizedBox(width: 16.0),
             Row(
               children: [
-                Icon(type.icon, color: Colors.blueAccent),
-                SizedBox(width: 8.0),
+                Icon(
+                  type.icon,
+                  color: Colors.black,
+                  size: 20.0,
+                ),
+                const SizedBox(width: 8.0),
                 Text(
                   DateFormat.yMd().format(date),
                   style: TextStyle(
