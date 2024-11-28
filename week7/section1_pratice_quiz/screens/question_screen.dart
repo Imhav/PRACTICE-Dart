@@ -19,7 +19,7 @@ class QuestionScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Question Title
+
           Text(
             question.title,
             style: const TextStyle(
@@ -29,7 +29,7 @@ class QuestionScreen extends StatelessWidget {
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 20),
-          // Possible Answers as Buttons
+
           ...question.possibleAnswers.map((answer) {
             return Padding(
               padding: const EdgeInsets.symmetric(vertical: 8.0),

@@ -17,7 +17,6 @@ class ResultScreen extends StatelessWidget {
     required this.quiz,
   });
 
-  // Helper method to build the answers for a given question
   Iterable<Widget> _buildAnswerWidgets(
       Question question, Submission submission) {
     Answer? userAnswer = submission.getAnswerFor(question);
@@ -30,7 +29,7 @@ class ResultScreen extends StatelessWidget {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          // The answer text
+
           Text(
             answer,
             style: TextStyle(
@@ -39,7 +38,7 @@ class ResultScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(width: 10),
-          // An icon indicating if it was the user's choice and whether it was correct or not
+
           if (isUserAnswer)
             Icon(
               isCorrectAnswer ? Icons.check : Icons.close,
@@ -50,7 +49,6 @@ class ResultScreen extends StatelessWidget {
     }).toList();
   }
 
-  // Helper method to build the list of questions and their answers
   Widget _buildQuestionList(Quiz quiz, Submission submission) {
     return ListView.builder(
       shrinkWrap: true,
@@ -66,7 +64,6 @@ class ResultScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Question title with index
               Row(
                 children: [
                   Text(
@@ -88,7 +85,6 @@ class ResultScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              // Answers for the question
               ..._buildAnswerWidgets(question, submission),
             ],
           ),

@@ -26,22 +26,20 @@ class _QuizAppState extends State<QuizApp> {
   Submission _submission = Submission();
   int currentQuestionIndex = 0;
 
-  // Method to start the quiz
   void _startQuiz() {
     setState(() {
       _currentScreenState = ScreenState.started;
       currentQuestionIndex = 0;
-      _submission = Submission(); // Reset submission
+      _submission = Submission();
     });
   }
 
-  // Method to handle answering a question
   void _answerQuestion(String answer) {
     Question currentQuestion = widget.quiz.questions[currentQuestionIndex];
     _submission.addAnswer(currentQuestion, answer);
 
     setState(() {
-      // Move to the next question or finish the quiz
+
       if (currentQuestionIndex < widget.quiz.questions.length - 1) {
         currentQuestionIndex++;
       } else {
@@ -50,12 +48,11 @@ class _QuizAppState extends State<QuizApp> {
     });
   }
 
-  // Method to reset the quiz
   void _resetQuiz() {
     setState(() {
       _currentScreenState = ScreenState.notStarted;
       currentQuestionIndex = 0;
-      _submission = Submission(); // Clear answers
+      _submission = Submission();
     });
   }
 
@@ -63,7 +60,6 @@ class _QuizAppState extends State<QuizApp> {
   Widget build(BuildContext context) {
     Widget currentScreen;
 
-    // Determine the current screen based on the state
     switch (_currentScreenState) {
       case ScreenState.notStarted:
         currentScreen = WelcomeScreen(
@@ -74,12 +70,12 @@ class _QuizAppState extends State<QuizApp> {
       case ScreenState.started:
         currentScreen = QuestionScreen(
           question: widget.quiz.questions[currentQuestionIndex],
-          onAnswerSelected: _answerQuestion, // Updated for clarity
+          onAnswerSelected: _answerQuestion, 
         );
         break;
       case ScreenState.finished:
         currentScreen = ResultScreen(
-          score: _submission.getScore(), // Calculate the user's score
+          score: _submission.getScore(), 
           submission: _submission,
           quiz: widget.quiz,
           onRestart: _resetQuiz,
