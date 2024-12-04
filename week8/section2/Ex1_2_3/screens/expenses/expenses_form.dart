@@ -57,10 +57,11 @@ class _ExpenseFormState extends State<ExpenseForm> {
         initialDate: selectedDate,
         firstDate: DateTime(2015, 8),
         lastDate: DateTime(2101));
-    if (picked != null && picked != selectedDate)
+    if (picked != null && picked != selectedDate) {
       setState(() {
         selectedDate = picked;
       });
+    }
   }
 
   @override
@@ -122,8 +123,8 @@ class _ExpenseFormState extends State<ExpenseForm> {
               ),
               ElevatedButton(
                 onPressed: () => _selectDate(context),
-                child: Row(
-                  children: const [
+                child: const Row(
+                  children: [
                     Icon(Icons.calendar_today),
                     Text('Select date'),
                   ],
