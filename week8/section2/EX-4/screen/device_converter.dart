@@ -16,18 +16,18 @@ class _DeviceConverterState extends State<DeviceConverter> {
   Device selectedCategory = Device.riel;
   double _result = 0;
 
-  void _convertToDevices() {
+  void _convertCurrency() {
     setState(() {
-      double amount = double.parse(_valueController.text);
+      double currency = double.parse(_valueController.text);
       switch (_selectedDevice) {
         case Device.euro:
-          _result = amount * 0.95;
+          _result = currency * 0.95;
           break;
         case Device.riel:
-          _result = amount * 4000;
+          _result = currency * 4000;
           break;
         case Device.dong:
-          _result = amount * 25400;
+          _result = currency * 25400;
           break;
         default:
           _result = 0;
@@ -98,7 +98,7 @@ class _DeviceConverterState extends State<DeviceConverter> {
               onChanged: (Device? newValue) {
                 setState(() {
                   _selectedDevice = newValue!;
-                  _convertToDevices();
+                  _convertCurrency();
                 });
               },
               items:
