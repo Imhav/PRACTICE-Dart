@@ -13,11 +13,14 @@ class DeviceConverter extends StatefulWidget {
 class _DeviceConverterState extends State<DeviceConverter> {
   final TextEditingController _valueController = TextEditingController();
   Device? _selectedDevice;
-  Device selectedCategory = Device.riel;
   double _result = 0;
 
   void _convertCurrency() {
     setState(() {
+      if (_valueController.text.isEmpty) {
+        _result = 0;
+        return;
+      }
       double currency = double.parse(_valueController.text);
       switch (_selectedDevice) {
         case Device.euro:
@@ -125,4 +128,3 @@ class _DeviceConverterState extends State<DeviceConverter> {
     );
   }
 }
-//
